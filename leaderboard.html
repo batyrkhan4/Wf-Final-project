@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Minecraft PvP Championship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>');</script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+
+    <div id="scrollProgressContainer" class="scroll-progress-container" aria-hidden="true">
+        <div id="scrollProgressBar" class="scroll-progress-bar"></div>
+    </div>
+
+    <div id="toastContainer" class="toast-notification-container" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="page d-flex flex-column min-vh-100">
+
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
+                <div class="container-fluid px-sm-2 px-lg-4">
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                        <img src="images/logo.png" alt="MCTiers League logo" class="logo-img">
+                        <span>MCTiers League</span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="leaderboard.html" aria-current="page">Leaderboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="navLoginLink" href="login.html">Log In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="navProfileLink" href="profile.html">Profile</a>
+                            </li>
+                            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                                <div class="nav-actions-container">
+                                    <button type="button" id="soundToggleBtn" class="nav-action-btn" aria-pressed="true">
+                                        🔊 Sound: On
+                                    </button>
+                                    <button type="button" id="themeToggleBtn" class="nav-action-btn">
+                                        🌙 Theme: Night
+                                    </button>
+                                    <button type="button" id="changeThemeBtn" class="nav-action-btn">
+                                        🎨 Colors
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container-fluid flex-grow-1 py-4 px-sm-3 px-lg-5">
+            <main>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+                    <div>
+                        <h1 class="display-6 fw-bold text-white mb-1">Official Player Rankings</h1>
+                        <p class="text-muted mb-0">Live tier test ratings with localStorage filter persistence, player bookmarking &amp; REST Countries API integration.</p>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                        <a href="profile.html" class="btn btn-outline-info fw-bold btn-animated">⭐ Saved Contenders (<span id="savedPlayersCountBadge">0</span>)</a>
+                        <a href="contact.html" class="btn btn-primary fw-bold btn-animated">Sign Up for Tier Test</a>
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="stat-card">
+                            <div id="statTotalPoints" class="stat-num">0</div>
+                            <div class="stat-label">Total League Points</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="stat-card">
+                            <div id="statTopScore" class="stat-num text-warning">—</div>
+                            <div class="stat-label">#1 Rank Champion</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="stat-card">
+                            <div id="statPlayerCount" class="stat-num text-success">0</div>
+                            <div class="stat-label">Verified Contenders</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="stat-card">
+                            <div id="statTotalWins" class="stat-num text-info counter-num" data-target="1143" data-suffix=" Wins">0</div>
+                            <div class="stat-label">Official Matches Won</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-dark border-secondary p-3 mb-4">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-md-5">
+                            <div class="search-autocomplete-wrapper">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-dark border-secondary text-info">🔍</span>
+                                    <input type="text" id="leaderboardSearch" class="form-control" placeholder="Search player IGN, country, tier or kit..." autocomplete="off" aria-label="Search players">
+                                    <button type="button" id="clearLbSearchBtn" class="btn btn-outline-secondary" title="Clear search">✕</button>
+                                </div>
+                                <ul id="leaderboardAutocomplete" class="autocomplete-dropdown" role="listbox" aria-label="Player search suggestions"></ul>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="d-flex flex-wrap gap-2 justify-content-md-end" role="group" aria-label="Discipline filter">
+                                <button type="button" class="btn-discipline-filter btn-lb-filter active" data-discipline="All">All</button>
+                                <button type="button" class="btn-discipline-filter btn-lb-filter" data-discipline="Sword">⚔️ Sword</button>
+                                <button type="button" class="btn-discipline-filter btn-lb-filter" data-discipline="Axe">🪓 Axe</button>
+                                <button type="button" class="btn-discipline-filter btn-lb-filter" data-discipline="Crystal">🔮 Crystal</button>
+                                <button type="button" class="btn-discipline-filter btn-lb-filter" data-discipline="Pot">🧪 Pot</button>
+                                <button type="button" class="btn-discipline-filter btn-lb-filter" data-discipline="Saved">⭐ Watchlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive rounded border border-secondary shadow-sm mb-5">
+                    <table class="table table-dark table-hover align-middle mb-0">
+                        <thead class="leaderboard-thead">
+                            <tr>
+                                <th># Rank</th>
+                                <th>Player IGN</th>
+                                <th>Country (Click for API)</th>
+                                <th>Rating / Tier</th>
+                                <th>Main Kit</th>
+                                <th>Official Wins</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardTableBody">
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Requirement 7: External API Integration (REST Countries API) -->
+                <section class="api-panel-card p-4 rounded border border-secondary mb-4" aria-label="REST Countries Public API">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-5">
+                            <span class="badge bg-info text-dark mb-2">🌍 Public API Integration (REST Countries API)</span>
+                            <h2 class="h4 text-info mb-2">Contender Country Intelligence</h2>
+                            <p class="text-muted small mb-3">
+                                Click any country button in the Leaderboard table above or search any country below to fetch live regional data (Official Flag, Capital, Population, Subregion &amp; Timezones) from <code>restcountries.com</code> using <code>fetch()</code> and <code>async/await</code>.
+                            </p>
+                            <div class="input-group mb-2">
+                                <input type="text" id="countryApiInput" class="form-control" placeholder="Enter country (e.g. Kazakhstan, Germany, Japan)..." value="Kazakhstan" aria-label="Country name for API lookup">
+                                <button type="button" id="fetchCountryApiBtn" class="btn btn-info fw-bold text-dark">Fetch Country Data</button>
+                            </div>
+                            <div class="d-flex flex-wrap gap-1 mt-2">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-quick-country" data-country="Kazakhstan">🇰🇿 Kazakhstan</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-quick-country" data-country="United States">🇺🇸 USA</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-quick-country" data-country="Germany">🇩🇪 Germany</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-quick-country" data-country="Canada">🇨🇦 Canada</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-quick-country" data-country="United Kingdom">🇬🇧 UK</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-quick-country" data-country="Japan">🇯🇵 Japan</button>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-7">
+                            <div id="countryApiLoading" class="api-loading-state py-4 text-center" style="display: none;">
+                                <div class="spinner-border text-info me-2" role="status" aria-hidden="true"></div>
+                                <span>Fetching country dossier from REST Countries API...</span>
+                            </div>
+
+                            <div id="countryApiError" class="api-error-state alert alert-danger mb-0" style="display: none;">
+                                <strong>API Request Error:</strong> <span id="countryApiErrorMsg">Could not load country details.</span>
+                            </div>
+
+                            <div id="countryApiResult" class="country-api-result-card p-3 rounded border border-secondary">
+                                <!-- Populated via fetch() -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <footer class="py-4 text-center mt-auto bg-dark border-top border-secondary">
+            <div class="container">
+                <div class="d-flex justify-content-center flex-wrap gap-3 mb-2 small">
+                    <a href="index.html" class="footer-nav-link">Home</a>
+                    <a href="leaderboard.html" class="footer-nav-link">Leaderboard</a>
+                    <a href="about.html" class="footer-nav-link">About Us</a>
+                    <a href="contact.html" class="footer-nav-link">Sign Up</a>
+                    <a href="login.html" class="footer-nav-link">Log In</a>
+                    <a href="profile.html" class="footer-nav-link">Profile</a>
+                </div>
+                <p class="mb-0 text-light">Created by: Batyrkhan Uvayev &amp; Yermek Sain | MCTiers League 2026 — Final Project</p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gladiator Log In - Minecraft PvP Championship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>');</script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+
+    <div id="scrollProgressContainer" class="scroll-progress-container" aria-hidden="true">
+        <div id="scrollProgressBar" class="scroll-progress-bar"></div>
+    </div>
+
+    <div id="toastContainer" class="toast-notification-container" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="page d-flex flex-column min-vh-100">
+
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
+                <div class="container-fluid px-sm-2 px-lg-4">
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                        <img src="images/logo.png" alt="MCTiers League logo" class="logo-img">
+                        <span>MCTiers League</span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" id="navLoginLink" href="login.html" aria-current="page">Log In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="navProfileLink" href="profile.html">Profile</a>
+                            </li>
+                            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                                <div class="nav-actions-container">
+                                    <button type="button" id="soundToggleBtn" class="nav-action-btn" aria-pressed="true">
+                                        🔊 Sound: On
+                                    </button>
+                                    <button type="button" id="themeToggleBtn" class="nav-action-btn">
+                                        🌙 Theme: Night
+                                    </button>
+                                    <button type="button" id="changeThemeBtn" class="nav-action-btn">
+                                        🎨 Colors
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container-fluid flex-grow-1 py-5 px-sm-3 px-lg-5">
+            <div class="row g-4 justify-content-center align-items-stretch">
+
+                <aside class="col-lg-4">
+                    <div class="site-aside p-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="greeting-badge">Authentication Portal</span>
+                            <h2 class="h4 text-info mb-3">Gladiator Log In</h2>
+                            <p class="text-light mb-3">
+                                Sign in with the Email, Phone Number, and Password you registered on the Sign Up page, or use the pre-verified Demo Champion credentials below for instant testing.
+                            </p>
+
+                            <div class="p-3 rounded bg-dark border border-secondary mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-warning text-dark">⚡ Instant Demo Account</span>
+                                    <button type="button" id="fillDemoLoginBtn" class="btn btn-sm btn-info fw-bold text-dark">Auto-Fill Demo</button>
+                                </div>
+                                <p class="small mb-1"><strong>Email:</strong> <code>batyrkhan@mctiersleague.net</code></p>
+                                <p class="small mb-1"><strong>Phone:</strong> <code>+7 (777) 123-45-67</code></p>
+                                <p class="small mb-0"><strong>Password:</strong> <code>Gladiator#2026</code></p>
+                            </div>
+                        </div>
+
+                        <div class="border-top border-secondary pt-3 mt-3">
+                            <p class="small text-muted mb-2">New to the 2026 Competitive Season?</p>
+                            <a href="contact.html" class="btn btn-outline-info w-100 fw-bold">Create New Account (Sign Up) &rarr;</a>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="col-lg-6">
+                    <div class="registration-card h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                            <div>
+                                <h1 class="h3 text-white mb-1">Access Your Gladiator Profile</h1>
+                                <p class="text-muted small mb-0">All fields are validated via custom JavaScript with <code>novalidate</code>.</p>
+                            </div>
+                            <span class="badge bg-info text-dark">localStorage Auth</span>
+                        </div>
+
+                        <div id="loginAlertBox" class="alert alert-danger" style="display: none;" role="alert"></div>
+
+                        <!-- Requirement 5.1 & 5.2: novalidate and ZERO HTML validation attributes -->
+                        <form id="loginForm" novalidate>
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label">Registered Email Address: *</label>
+                                <input type="text" inputmode="email" class="form-control" id="loginEmail" placeholder="e.g. batyrkhan@mctiersleague.net">
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="loginPhone" class="form-label">Registered Phone Number: *</label>
+                                <input type="text" inputmode="tel" class="form-control" id="loginPhone" placeholder="e.g. +7 (777) 123-45-67">
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="loginPassword" class="form-label">Account Password: *</label>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password">
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="d-flex gap-3 flex-wrap">
+                                <button type="submit" id="loginSubmitBtn" class="btn btn-primary btn-lg fw-bold flex-grow-1 btn-animated">
+                                    🔑 Log In to Profile
+                                </button>
+                                <button type="button" id="loginFillDemoBtn2" class="btn btn-outline-info btn-lg">
+                                    ⚡ Fill Demo
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+
+            </div>
+        </div>
+
+        <footer class="py-4 text-center mt-auto bg-dark border-top border-secondary">
+            <div class="container">
+                <div class="d-flex justify-content-center flex-wrap gap-3 mb-2 small">
+                    <a href="index.html" class="footer-nav-link">Home</a>
+                    <a href="leaderboard.html" class="footer-nav-link">Leaderboard</a>
+                    <a href="about.html" class="footer-nav-link">About Us</a>
+                    <a href="contact.html" class="footer-nav-link">Sign Up</a>
+                    <a href="login.html" class="footer-nav-link">Log In</a>
+                    <a href="profile.html" class="footer-nav-link">Profile</a>
+                </div>
+                <p class="mb-0 text-light">Created by: Batyrkhan Uvayev &amp; Yermek Sain | MCTiers League 2026 — Final Project</p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
