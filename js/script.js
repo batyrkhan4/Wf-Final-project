@@ -2147,7 +2147,6 @@ $(document).ready(function () {
             showToast("Filled Demo Champion credentials! Click Log In to continue.", "info", "⚡");
         }
 
-        $("#fillDemoLoginBtn, #loginFillDemoBtn2").on("click", fillDemoCredentials);
 
         $loginForm.on("submit", function (e) {
             e.preventDefault();
