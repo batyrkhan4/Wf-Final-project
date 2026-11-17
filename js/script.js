@@ -1,6 +1,3 @@
-// MCTiers League — Final Project Complete JavaScript & jQuery Engine
-// Team Members: Batyrkhan Uvayev & Yermek Sain
-
 $(document).ready(function () {
     console.log("jQuery is ready!");
     console.log("MCTiers League: Final Project Engine Initialized");
@@ -67,10 +64,9 @@ $(document).ready(function () {
         safeSetStorage(key, JSON.stringify(obj));
     }
 
-    // Seed default Demo Champion User in localStorage so Log In & Profile always work out-of-the-box
     const DEMO_USER = {
         fullName: "Batyrkhan Uvayev",
-        ign: "Erauina",
+        ign: "marble",
         email: "batyrkhan@mctiersleague.net",
         phone: "+7 (777) 123-45-67",
         discipline: "Sword",
@@ -1582,25 +1578,26 @@ $(document).ready(function () {
         $loading.show();
 
         try {
-            const response = await fetch(`https://restcountries.com/v3.1/name/${encodeURIComponent(cleanQuery)}`);
+            const response = await fetch(
+                `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cleanQuery)}&count=1&language=en&format=json`
+            );
             if (!response.ok) {
-                throw new Error(`Country "${cleanQuery}" not found (HTTP ${response.status})`);
+                throw new Error(`Country "${cleanQuery}" lookup failed (HTTP ${response.status})`);
             }
             const data = await response.json();
-            if (!Array.isArray(data) || !data.length) {
-                throw new Error("No country records returned");
+            if (!data || !Array.isArray(data.results) || !data.results.length) {
+                throw new Error(`Country "${cleanQuery}" not found`);
             }
 
-            const country = data[0];
-            const officialName = (country.name && country.name.official) || cleanQuery;
-            const commonName = (country.name && country.name.common) || cleanQuery;
-            const capital = Array.isArray(country.capital) ? country.capital[0] : "N/A";
-            const region = country.region || "Global";
-            const subregion = country.subregion || "Standard Zone";
-            const population = country.population ? Number(country.population).toLocaleString() : "N/A";
-            const flagUrl = (country.flags && (country.flags.svg || country.flags.png)) || "";
-            const timezones = Array.isArray(country.timezones) ? country.timezones.slice(0, 2).join(", ") : "UTC";
-
+            const place = data.results[0];
+            const commonName = place.country || place.name || cleanQuery;
+            const officialName = place.name ? `${place.name} (${place.country_code || "INTL"})` : commonName;
+            const capital = place.admin1 || place.name || "Primary Hub";
+            const region = place.timezone ? place.timezone.split("/")[0] : "Global";
+            const subregion = place.country_code ? `ISO: ${place.country_code}` : "Verified";
+            const population = place.population ? Number(place.population).toLocaleString() : "N/A";
+            const timezones = place.timezone || "UTC";
+            const flagUrl = place.country_code ? `https://flagcdn.com/w160/${place.country_code.toLowerCase()}.png` : "";
             $loading.hide();
             $result.html(`
                 <div class="d-flex align-items-center gap-3 flex-wrap mb-3">

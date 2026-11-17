@@ -160,14 +160,13 @@
                     </table>
                 </div>
 
-                <!-- Requirement 7: External API Integration (REST Countries API) -->
                 <section class="api-panel-card p-4 rounded border border-secondary mb-4" aria-label="REST Countries Public API">
                     <div class="row g-4 align-items-center">
                         <div class="col-lg-5">
-                            <span class="badge bg-info text-dark mb-2">🌍 Public API Integration (REST Countries API)</span>
+                            <span class="badge bg-info text-dark mb-2">🌍 Public API Integration (Open-Meteo Geocoding API)</span>
                             <h2 class="h4 text-info mb-2">Contender Country Intelligence</h2>
                             <p class="text-muted small mb-3">
-                                Click any country button in the Leaderboard table above or search any country below to fetch live regional data (Official Flag, Capital, Population, Subregion &amp; Timezones) from <code>restcountries.com</code> using <code>fetch()</code> and <code>async/await</code>.
+                                Click any country button in the Leaderboard table above or search any country below to fetch live regional data (Official Flag, Capital, Population, Subregion &amp; Timezones) from <code>open-meteo.com</code> using <code>fetch()</code> and <code>async/await</code>.
                             </p>
                             <div class="input-group mb-2">
                                 <input type="text" id="countryApiInput" class="form-control" placeholder="Enter country (e.g. Kazakhstan, Germany, Japan)..." value="Kazakhstan" aria-label="Country name for API lookup">
@@ -186,7 +185,7 @@
                         <div class="col-lg-7">
                             <div id="countryApiLoading" class="api-loading-state py-4 text-center" style="display: none;">
                                 <div class="spinner-border text-info me-2" role="status" aria-hidden="true"></div>
-                                <span>Fetching country dossier from REST Countries API...</span>
+                                <span>Fetching country dossier from Open-Meteo Geocoding API....</span>
                             </div>
 
                             <div id="countryApiError" class="api-error-state alert alert-danger mb-0" style="display: none;">
@@ -194,7 +193,7 @@
                             </div>
 
                             <div id="countryApiResult" class="country-api-result-card p-3 rounded border border-secondary">
-                                <!-- Populated via fetch() -->
+
                             </div>
                         </div>
                     </div>
@@ -204,17 +203,7 @@
         </div>
 
         <footer class="py-4 text-center mt-auto bg-dark border-top border-secondary">
-            <div class="container">
-                <div class="d-flex justify-content-center flex-wrap gap-3 mb-2 small">
-                    <a href="index.html" class="footer-nav-link">Home</a>
-                    <a href="leaderboard.html" class="footer-nav-link">Leaderboard</a>
-                    <a href="about.html" class="footer-nav-link">About Us</a>
-                    <a href="contact.html" class="footer-nav-link">Sign Up</a>
-                    <a href="login.html" class="footer-nav-link">Log In</a>
-                    <a href="profile.html" class="footer-nav-link">Profile</a>
-                </div>
-                <p class="mb-0 text-light">Created by: Batyrkhan Uvayev &amp; Yermek Sain | MCTiers League 2026 — Final Project</p>
-            </div>
+                <p class="mb-0 text-light">Created by: Batyrkhan Uvayev &amp; Yermek Sain | MCTiers League 2026</p>
         </footer>
 
     </div>
