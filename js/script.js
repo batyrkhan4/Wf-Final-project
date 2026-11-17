@@ -5,49 +5,14 @@ $(document).ready(function () {
     // ======================================================================
     // 1. Cross-Page State & LocalStorage Persistence Helpers
     // ======================================================================
-    function readWindowNameState() {
-        try {
-            if (window.name && window.name.indexOf("MCTIERS_STATE:") === 0) {
-                return JSON.parse(window.name.slice("MCTIERS_STATE:".length));
-            }
-        } catch (e) {}
-        return {};
-    }
-
-    function writeWindowNameState(patch) {
-        try {
-            const current = readWindowNameState();
-            const updated = Object.assign({}, current, patch);
-            window.name = "MCTIERS_STATE:" + JSON.stringify(updated);
-        } catch (e) {}
-    }
-
     function safeGetStorage(key) {
-        try {
-            const val = window.localStorage.getItem(key);
-            if (val !== null) return val;
-        } catch (e) {}
-
-        const winState = readWindowNameState();
-        if (winState[key] !== undefined && winState[key] !== null) {
-            return String(winState[key]);
-        }
-        return null;
+        try { return window.localStorage.getItem(key); } catch (e) { return null; }
     }
-
     function safeSetStorage(key, val) {
-        const strVal = String(val);
-        writeWindowNameState({ [key]: strVal });
-        try {
-            window.localStorage.setItem(key, strVal);
-        } catch (e) {}
+        try { window.localStorage.setItem(key, String(val)); } catch (e) {}
     }
-
     function safeRemoveStorage(key) {
-        writeWindowNameState({ [key]: null });
-        try {
-            window.localStorage.removeItem(key);
-        } catch (e) {}
+        try { window.localStorage.removeItem(key); } catch (e) {}
     }
 
     function safeGetJSON(key, fallback) {
@@ -793,7 +758,7 @@ $(document).ready(function () {
         if (!$tipText.length || !$tipBtn.length) return;
 
         const tips = [
-            { quote: "Critical hits require falling momentum — jump and strike precisely on the descent for maximum hearts.", author: "Erauina (HT1 Champion)" },
+            { quote: "Critical hits require falling momentum — jump and strike precisely on the descent for maximum hearts.", author: "marble (HT1 Champion)" },
             { quote: "Always keep a water bucket in your hotbar; it resets fall damage and extinguishes flame aspect immediately.", author: "Itzrealme (Pot PvP Lead)" },
             { quote: "In Axe PvP, disable enemy shields with an axe sprint-hit before switching to your sword for combo follow-ups.", author: "Crozzor (Axe Tier Test Host)" },
             { quote: "Place End Crystals on obsidian diagonally to shield your hitbox while dealing lethal blast radius damage.", author: "VapeFly (Crystal Specialist)" },
@@ -984,7 +949,7 @@ $(document).ready(function () {
             title: "Grand Final: Sword 1.19",
             discipline: "Sword",
             date: "Nov 25, 18:00 UTC",
-            desc: "Showdown between Erauina and Itzrealme for top seasonal championship rank.",
+            desc: "Showdown between marble and Itzrealme for top seasonal championship rank.",
             image: "images/sword-duel.png",
             action: "Enter Queue"
         },
@@ -1203,7 +1168,7 @@ $(document).ready(function () {
             { label: "Axe & Shield PvP", value: "Axe", category: "Discipline" },
             { label: "Crystal PvP", value: "Crystal", category: "Discipline" },
             { label: "Pot PvP (Nodebuff)", value: "Pot", category: "Discipline" },
-            { label: "Erauina vs Itzrealme", value: "Erauina", category: "Featured Player" }
+            { label: "marble vs Itzrealme", value: "marble", category: "Featured Player" }
         ];
 
         setupAutocomplete(
@@ -1234,7 +1199,7 @@ $(document).ready(function () {
     // 12. Leaderboard Search, Filter, Watchlist & REST Countries API
     // ======================================================================
     const LEADERBOARD_PLAYERS = [
-        { rank: 1, name: "Erauina", country: "Kazakhstan", countryCode: "KZ", points: 300, tier: "HT1", discipline: "Sword", wins: 142 },
+        { rank: 1, name: "marble", country: "Kazakhstan", countryCode: "KZ", points: 300, tier: "HT1", discipline: "Sword", wins: 142 },
         { rank: 2, name: "Itzrealme", country: "United States", countryCode: "US", points: 295, tier: "HT1", discipline: "Pot", wins: 138 },
         { rank: 3, name: "Crozzor", country: "United States", countryCode: "US", points: 290, tier: "HT1", discipline: "Axe", wins: 131 },
         { rank: 4, name: "Kylaz", country: "United States", countryCode: "US", points: 285, tier: "HT1", discipline: "Sword", wins: 125 },
@@ -1247,7 +1212,7 @@ $(document).ready(function () {
     ];
 
     function getSavedPlayerNames() {
-        return safeGetJSON("mctiers_saved_players", ["Erauina"]);
+        return safeGetJSON("mctiers_saved_players", ["marble"]);
     }
 
     function toggleSavedPlayer(playerName) {
@@ -2282,7 +2247,7 @@ $(document).ready(function () {
 
         function renderProfileDetails(user) {
             $("#profileDisplayName").text(user.fullName || "Gladiator");
-            $("#profileDisplayIgn").text(`IGN: ${user.ign || "Erauina"}`);
+            $("#profileDisplayIgn").text(`IGN: ${user.ign || "marble"}`);
             $("#profileTicketId").text(user.ticketId || "MCT-202601");
 
             $("#profileValName").text(user.fullName || "—");

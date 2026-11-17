@@ -9,7 +9,6 @@ body {
     color: #e1e6f0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #0d0f17;
     background-image: linear-gradient(135deg, #0d0f17, #171a26);
     background-attachment: fixed;
     background-size: cover;
@@ -195,28 +194,6 @@ p {
     border-color: #2563ed;
 }
 
-.gallery-section {
-    margin-bottom: 40px;
-}
-
-.carousel {
-    border: 1px solid #2a3148;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.carousel-img {
-    height: 450px;
-    object-fit: contain;
-    background-color: #141824;
-    image-rendering: pixelated;
-}
-
-.carousel-caption {
-    background-color: rgba(20, 24, 36, 0.85);
-    border-radius: 6px;
-}
-
 .team-member {
     display: flex;
     align-items: center;
@@ -304,9 +281,6 @@ footer p {
         border-bottom: 1px solid #2a3148;
     }
 
-    .carousel-img {
-        height: 350px;
-    }
 }
 
 @media (max-width: 767px) {
@@ -332,10 +306,6 @@ footer p {
         height: 50px;
     }
 
-    .carousel-img {
-        height: 250px;
-    }
-
     .team-member {
         flex-direction: column;
         text-align: center;
@@ -352,17 +322,6 @@ footer p {
         font-size: 1.5rem;
     }
 
-    .carousel-img {
-        height: 200px;
-    }
-
-    .carousel-caption {
-        padding: 5px;
-    }
-
-    .carousel-caption h3 {
-        font-size: 0.9rem;
-    }
 }
 
 
@@ -589,76 +548,6 @@ footer p {
         padding: 24px 20px;
     }
 }
-
-
-
-body.light-theme {
-    background-color: #f1f5f9;
-    background-image: linear-gradient(135deg, #f8fafc, #e2e8f0);
-    color: #0f172a !important;
-}
-
-body.light-theme header,
-body.light-theme aside,
-body.light-theme .site-aside,
-body.light-theme .hero-banner,
-body.light-theme .rules-section,
-body.light-theme .match-card,
-body.light-theme .arena-showcase,
-body.light-theme .stat-card,
-body.light-theme .star-rating-box,
-body.light-theme .pvp-tip-box,
-body.light-theme .team-member,
-body.light-theme .faq-item,
-body.light-theme .subscribe-popup,
-body.light-theme .registration-card,
-body.light-theme footer {
-    background-color: #ffffff !important;
-    border-color: #cbd5e1 !important;
-    color: #0f172a !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-}
-
-body.light-theme h1,
-body.light-theme h2,
-body.light-theme h3,
-body.light-theme .card-title,
-body.light-theme .navbar-brand {
-    color: #0f172a !important;
-}
-
-body.light-theme p,
-body.light-theme .card-text,
-body.light-theme aside p,
-body.light-theme .navbar-nav .nav-link {
-    color: #475569 !important;
-}
-
-body.light-theme .navbar-nav .nav-link:hover,
-body.light-theme .navbar-nav .nav-link.active {
-    color: #0284c7 !important;
-}
-
-body.light-theme .table-dark {
-    --bs-table-bg: #ffffff;
-    --bs-table-striped-bg: #f8fafc;
-    --bs-table-hover-bg: #f1f5f9;
-    --bs-table-color: #0f172a;
-    --bs-table-border-color: #cbd5e1;
-    color: #0f172a !important;
-}
-
-body.light-theme .form-control,
-body.light-theme .form-select {
-    background-color: #f8fafc !important;
-    border-color: #cbd5e1 !important;
-    color: #0f172a !important;
-}
-
-body.light-theme .form-label {
-    color: #0f172a !important;
-}
-
 
 .nav-actions-container {
     display: flex;
@@ -1032,16 +921,6 @@ body.light-theme .form-label {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-top: 4px;
-}
-
-.sortable-th {
-    cursor: pointer;
-    user-select: none;
-    transition: color 0.2s ease;
-}
-
-.sortable-th:hover {
-    color: #59c7f5 !important;
 }
 
 .tier-badge {
