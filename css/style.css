@@ -7,7 +7,7 @@
 body {
     background-color: #0d0f17;
     color: #e1e6f0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     background-image: linear-gradient(135deg, #0d0f17, #171a26);
     background-attachment: fixed;
@@ -87,7 +87,6 @@ p {
     color: #a0a8c0;
 }
 
-
 .site-aside {
     color: #c5c9d6;
     background-color: #10131d;
@@ -137,8 +136,6 @@ p {
 .site-aside a:hover {
     color: #59c7f5;
 }
-
-
 
 .hero-banner,
 .rules-section {
@@ -280,7 +277,6 @@ footer p {
         border-right: none;
         border-bottom: 1px solid #2a3148;
     }
-
 }
 
 @media (max-width: 767px) {
@@ -321,12 +317,9 @@ footer p {
     h1 {
         font-size: 1.5rem;
     }
-
 }
 
-
-/* Task 2: Custom FAQ Accordion */
-
+/* Custom FAQ Accordion */
 .faq-section {
     max-width: 900px;
     margin: 50px auto;
@@ -430,6 +423,7 @@ footer p {
     }
 }
 
+/* Subscribe Modal */
 .subscribe-section {
     text-align: center;
     margin: 30px 0;
@@ -549,6 +543,7 @@ footer p {
     }
 }
 
+/* Navbar Actions & Greeting */
 .nav-actions-container {
     display: flex;
     align-items: center;
@@ -585,7 +580,6 @@ footer p {
     outline-offset: 2px;
 }
 
-
 .greeting-badge {
     display: inline-block;
     padding: 4px 10px;
@@ -607,7 +601,7 @@ footer p {
     margin-bottom: 0;
 }
 
-
+/* Pro PvP Tips & Extended Rules */
 .pvp-tip-box {
     background: #141824;
     border: 1px solid #2a3148;
@@ -664,7 +658,6 @@ footer p {
     transform: rotate(1deg) scale(1.03);
 }
 
-
 #extendedRules {
     display: none;
     margin-top: 20px;
@@ -679,9 +672,9 @@ footer p {
 }
 
 .read-more-btn {
-    background: transparent;
+    background: rgba(89, 199, 245, 0.1);
     border: 1px solid #59c7f5;
-    color: #59c7f5;
+    color: #59c7f5 !important;
     padding: 8px 18px;
     border-radius: 6px;
     font-weight: 600;
@@ -690,12 +683,15 @@ footer p {
     transition: all 0.25s ease;
 }
 
-.read-more-btn:hover {
-    background: rgba(89, 199, 245, 0.15);
-    color: #ffffff;
+.read-more-btn:hover,
+.read-more-btn:focus,
+.read-more-btn:active {
+    background: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+    color: #ffffff !important;
 }
 
-
+/* Filters, Arena Showcase & Star Rating */
 .filter-btn-group {
     display: flex;
     flex-wrap: wrap;
@@ -732,7 +728,6 @@ footer p {
 .matches-container {
     transition: opacity 0.25s ease;
 }
-
 
 .arena-showcase {
     background: #141824;
@@ -892,7 +887,7 @@ footer p {
     margin-bottom: 0;
 }
 
-
+/* Stat Cards & Tier Badges */
 .stat-card {
     background: #141824;
     border: 1px solid #2a3148;
@@ -936,7 +931,7 @@ footer p {
 .tier-ht2 { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #3b82f6; }
 .tier-lt2 { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid #a855f7; }
 
-
+/* Registration Wizard & Forms */
 .registration-card {
     background: #141824;
     border: 1px solid #2a3148;
@@ -1059,7 +1054,6 @@ footer p {
     font-size: 2.2rem;
 }
 
-
 .navbar-nav .nav-link:focus,
 .navbar-nav .nav-link:focus-visible,
 .navbar-nav .nav-link.keyboard-focused {
@@ -1073,23 +1067,7 @@ footer p {
     transition: all 0.2s ease;
 }
 
-body.light-theme .navbar-nav .nav-link:focus,
-body.light-theme .navbar-nav .nav-link:focus-visible,
-body.light-theme .navbar-nav .nav-link.keyboard-focused {
-    outline: 2px solid #0284c7 !important;
-    outline-offset: 3px !important;
-    background-color: #e0f2fe !important;
-    color: #0284c7 !important;
-    box-shadow: 0 0 16px rgba(2, 132, 199, 0.4) !important;
-    border-radius: 6px;
-    transform: translateY(-2px);
-}
-
-/* ==========================================================================
-   Assignment 6: jQuery Search, UX Engagement & Web App Enhancements
-   ========================================================================== */
-
-/* Task 4: Colorful and Stylized Scroll Progress Bar */
+/* Scroll Progress Bar */
 .scroll-progress-container {
     position: fixed;
     top: 0;
@@ -1118,7 +1096,7 @@ body.light-theme .navbar-nav .nav-link.keyboard-focused {
     100% { background-position: 200% 50%; }
 }
 
-/* Task 2: Autocomplete Search Suggestions Dropdown */
+/* Autocomplete Dropdown & Search Highlight */
 .search-autocomplete-wrapper {
     position: relative;
 }
@@ -1169,7 +1147,6 @@ body.light-theme .navbar-nav .nav-link.keyboard-focused {
     font-weight: 600;
 }
 
-/* Task 3: Search Highlighting */
 mark.search-highlight,
 .search-highlight {
     background: linear-gradient(135deg, #facc15, #f59e0b);
@@ -1180,7 +1157,7 @@ mark.search-highlight,
     box-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
 }
 
-/* Task 7: Notification System (jQuery Toast Notifications) */
+/* Toast Notifications */
 .toast-notification-container {
     position: fixed;
     bottom: 24px;
@@ -1209,17 +1186,9 @@ mark.search-highlight,
     overflow: hidden;
 }
 
-.jq-toast.toast-success {
-    border-left-color: #10b981;
-}
-
-.jq-toast.toast-info {
-    border-left-color: #59c7f5;
-}
-
-.jq-toast.toast-warning {
-    border-left-color: #f59e0b;
-}
+.jq-toast.toast-success { border-left-color: #10b981; }
+.jq-toast.toast-info { border-left-color: #59c7f5; }
+.jq-toast.toast-warning { border-left-color: #f59e0b; }
 
 .jq-toast-content {
     display: flex;
@@ -1252,7 +1221,7 @@ mark.search-highlight,
     color: #ffffff;
 }
 
-/* Task 8: Copied to Clipboard Button & Tooltip */
+/* Copy to Clipboard */
 .copy-snippet-box {
     background: #0d0f17;
     border: 1px solid #283046;
@@ -1279,7 +1248,7 @@ mark.search-highlight,
 .copy-snippet-code {
     color: #59c7f5;
     font-size: 0.84rem;
-    font-family: 'Consolas', 'Courier New', monospace;
+    font-family: monospace;
     word-break: break-all;
 }
 
@@ -1339,7 +1308,7 @@ mark.search-highlight,
     border-color: #10b981 transparent transparent transparent;
 }
 
-/* Task 9: Image Lazy Loading Transitions */
+/* Lazy Loading */
 .lazy-img {
     opacity: 0.35;
     filter: blur(6px);
@@ -1351,620 +1320,7 @@ mark.search-highlight,
     filter: none;
 }
 
-/* Light theme adjustments for Assignment 6 components */
-body.light-theme .autocomplete-dropdown,
-body.light-theme .jq-toast,
-body.light-theme .copy-snippet-box {
-    background: #ffffff !important;
-    border-color: #cbd5e1 !important;
-    color: #0f172a !important;
-}
-
-body.light-theme .autocomplete-item {
-    color: #0f172a !important;
-}
-
-body.light-theme .autocomplete-item:hover,
-body.light-theme .autocomplete-item.active-suggestion {
-    background: #e0f2fe !important;
-    color: #0284c7 !important;
-}
-
-body.light-theme .copy-snippet-code {
-    color: #0284c7 !important;
-}
-
-/* ==========================================================================
-   Comprehensive Light Theme (Day Mode) Overrides — Complete Fix
-   ========================================================================== */
-
-body.light-theme {
-    background-color: #f1f5f9;
-    background-image: linear-gradient(135deg, #f8fafc, #e2e8f0);
-    color: #0f172a !important;
-}
-
-/* 1. Surfaces, Containers & Cards */
-body.light-theme header,
-body.light-theme aside,
-body.light-theme .site-aside,
-body.light-theme .hero-banner,
-body.light-theme .rules-section,
-body.light-theme .match-card,
-body.light-theme .arena-showcase,
-body.light-theme .stat-card,
-body.light-theme .star-rating-box,
-body.light-theme .pvp-tip-box,
-body.light-theme .team-member,
-body.light-theme .faq-item,
-body.light-theme .subscribe-popup,
-body.light-theme .registration-card,
-body.light-theme .card,
-body.light-theme .bg-dark,
-body.light-theme footer {
-    background-color: #ffffff !important;
-    border-color: #cbd5e1 !important;
-    color: #0f172a !important;
-    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
-}
-
-body.light-theme .hero-banner {
-    background-image: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
-    border-color: #bae6fd !important;
-}
-
-body.light-theme footer {
-    background-color: #f8fafc !important;
-    border-top: 1px solid #cbd5e1 !important;
-}
-
-/* 2. Headings, Paragraphs, Lists & Bootstrap Text Utilities */
-body.light-theme h1,
-body.light-theme h2,
-body.light-theme h3,
-body.light-theme h4,
-body.light-theme h5,
-body.light-theme h6,
-body.light-theme .card-title,
-body.light-theme .navbar-brand,
-body.light-theme .navbar-brand span,
-body.light-theme .text-white,
-body.light-theme .text-light,
-body.light-theme strong {
-    color: #0f172a !important;
-}
-
-body.light-theme p,
-body.light-theme li,
-body.light-theme .card-text,
-body.light-theme aside p,
-body.light-theme .text-muted,
-body.light-theme .text-secondary,
-body.light-theme small {
-    color: #475569 !important;
-}
-
-/* Semantic accent colors adjusted for crisp contrast on white backgrounds */
-body.light-theme .text-info,
-body.light-theme .subtitle,
-body.light-theme .aside-section h2,
-body.light-theme .faq-title {
-    color: #0284c7 !important;
-}
-
-body.light-theme .text-warning {
-    color: #d97706 !important;
-}
-
-body.light-theme .text-success {
-    color: #059669 !important;
-}
-
-body.light-theme .border-secondary {
-    border-color: #cbd5e1 !important;
-}
-
-/* 3. Navbar & Header Controls */
-body.light-theme .navbar-nav .nav-link {
-    color: #334155 !important;
-}
-
-body.light-theme .navbar-nav .nav-link:hover {
-    color: #0284c7 !important;
-    background-color: #f1f5f9;
-    border-radius: 6px;
-}
-
-body.light-theme .navbar-nav .nav-link.active {
-    background-color: #0284c7 !important;
-    color: #ffffff !important;
-    box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
-}
-
-body.light-theme .navbar-toggler {
-    border-color: #cbd5e1 !important;
-    background-color: #f8fafc !important;
-}
-
-body.light-theme .navbar-toggler-icon {
-    filter: invert(1) grayscale(100%) brightness(0.2);
-}
-
-body.light-theme .nav-action-btn {
-    background: #f1f5f9 !important;
-    color: #0f172a !important;
-    border: 1px solid #cbd5e1 !important;
-    box-shadow: none;
-}
-
-body.light-theme .nav-action-btn:hover {
-    background: #e0f2fe !important;
-    border-color: #0284c7 !important;
-    color: #0284c7 !important;
-    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.15);
-}
-
-/* 4. Sidebar (Aside) Elements */
-body.light-theme .site-aside hr {
-    border-color: #e2e8f0 !important;
-}
-
-body.light-theme .greeting-badge,
-body.light-theme .season-badge {
-    background: #e0f2fe !important;
-    color: #0369a1 !important;
-    border-color: #7dd3fc !important;
-}
-
-body.light-theme .greeting-text {
-    color: #0f172a !important;
-}
-
-body.light-theme .site-aside a {
-    color: #0284c7 !important;
-    font-weight: 600;
-}
-
-body.light-theme .site-aside a:hover {
-    color: #0369a1 !important;
-    text-decoration: underline;
-}
-
-/* 5. Pro Tip Box & Extended Rules */
-body.light-theme .tip-text {
-    color: #1e293b !important;
-}
-
-body.light-theme .tip-author {
-    color: #0284c7 !important;
-}
-
-body.light-theme #extendedRules {
-    border-top-color: #cbd5e1 !important;
-}
-
-body.light-theme .read-more-btn {
-    border-color: #0284c7 !important;
-    color: #0284c7 !important;
-    background: #f0f9ff;
-}
-
-body.light-theme .read-more-btn:hover {
-    background: #0284c7 !important;
-    color: #ffffff !important;
-}
-
-/* 6. Interactive Arena Showcase (Keep photo overlay text light on dark image gradient) */
-body.light-theme .arena-main-wrap {
-    border-color: #cbd5e1 !important;
-    background: #e2e8f0 !important;
-}
-
-body.light-theme .arena-caption-overlay {
-    background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 15%, rgba(15, 23, 42, 0.65) 65%, transparent) !important;
-}
-
-body.light-theme .arena-caption-overlay h3,
-body.light-theme #arenaDisplayTitle {
-    color: #ffffff !important;
-}
-
-body.light-theme .arena-caption-overlay p,
-body.light-theme #arenaDisplayDesc {
-    color: #f1f5f9 !important;
-}
-
-body.light-theme .arena-badge {
-    background: #0284c7 !important;
-    color: #ffffff !important;
-}
-
-body.light-theme .arena-thumb-btn {
-    background: #ffffff !important;
-    border-color: #cbd5e1 !important;
-}
-
-body.light-theme .arena-thumb-btn:hover {
-    border-color: #0284c7 !important;
-}
-
-body.light-theme .arena-thumb-btn.active-thumb {
-    border-color: #0284c7 !important;
-    box-shadow: 0 0 12px rgba(2, 132, 199, 0.4) !important;
-}
-
-body.light-theme .arena-thumb-title {
-    background: #f8fafc !important;
-    color: #0f172a !important;
-    border-top: 1px solid #e2e8f0;
-}
-
-/* 7. Filter Buttons, Match Cards & Star Rating */
-body.light-theme .btn-discipline-filter {
-    background: #ffffff !important;
-    border-color: #cbd5e1 !important;
-    color: #334155 !important;
-}
-
-body.light-theme .btn-discipline-filter:hover {
-    background: #f0f9ff !important;
-    border-color: #0284c7 !important;
-    color: #0284c7 !important;
-}
-
-body.light-theme .btn-discipline-filter.active {
-    background: #0284c7 !important;
-    border-color: #0284c7 !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3) !important;
-}
-
-body.light-theme .match-card img {
-    background-color: #f8fafc !important;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-body.light-theme .match-card .btn-outline-info,
-body.light-theme .btn-outline-info {
-    color: #0284c7 !important;
-    border-color: #0284c7 !important;
-}
-
-body.light-theme .match-card .btn-outline-info:hover,
-body.light-theme .btn-outline-info:hover {
-    background-color: #0284c7 !important;
-    color: #ffffff !important;
-}
-
-body.light-theme .star-btn {
-    color: #cbd5e1;
-}
-
-body.light-theme .star-btn.active,
-body.light-theme .star-btn.hovered {
-    color: #f59e0b;
-    text-shadow: 0 0 10px rgba(245, 158, 11, 0.45);
-}
-
-body.light-theme .rating-feedback {
-    color: #0284c7;
-}
-
-/* 8. Stats Cards & Leaderboard Table */
-body.light-theme .stat-num {
-    color: #0284c7;
-}
-
-body.light-theme .stat-label {
-    color: #475569 !important;
-}
-
-body.light-theme .table,
-body.light-theme .table-dark {
-    --bs-table-bg: #ffffff !important;
-    --bs-table-striped-bg: #f8fafc !important;
-    --bs-table-hover-bg: #f0f9ff !important;
-    --bs-table-hover-color: #0f172a !important;
-    --bs-table-color: #0f172a !important;
-    --bs-table-border-color: #e2e8f0 !important;
-    background-color: #ffffff !important;
-    color: #0f172a !important;
-}
-
-body.light-theme .table thead,
-body.light-theme .table thead.table-secondary,
-body.light-theme .table thead th {
-    background-color: #f1f5f9 !important;
-    color: #0f172a !important;
-    border-bottom: 2px solid #cbd5e1 !important;
-}
-
-body.light-theme .table tbody tr,
-body.light-theme .table tbody td {
-    background-color: #ffffff !important;
-    color: #1e293b !important;
-    border-color: #e2e8f0 !important;
-}
-
-body.light-theme .table-hover tbody tr:hover td {
-    background-color: #f0f9ff !important;
-    color: #0f172a !important;
-}
-
-body.light-theme .leaderboard-row .badge.bg-dark {
-    background-color: #f1f5f9 !important;
-    color: #0f172a !important;
-    border-color: #cbd5e1 !important;
-}
-
-body.light-theme .tier-ht1 {
-    background: #fee2e2 !important;
-    color: #b91c1c !important;
-    border-color: #f87171 !important;
-}
-
-body.light-theme .tier-lt1 {
-    background: #ffedd5 !important;
-    color: #c2410c !important;
-    border-color: #fb923c !important;
-}
-
-body.light-theme .tier-ht2 {
-    background: #dbeafe !important;
-    color: #1d4ed8 !important;
-    border-color: #60a5fa !important;
-}
-
-body.light-theme .tier-lt2 {
-    background: #f3e8ff !important;
-    color: #7e22ce !important;
-    border-color: #c084fc !important;
-}
-
-/* 9. Search Inputs, Input Group Icons, Copy Buttons & Toasts */
-body.light-theme .input-group-text {
-    background-color: #f1f5f9 !important;
-    border-color: #cbd5e1 !important;
-    color: #0284c7 !important;
-}
-
-body.light-theme .form-control,
-body.light-theme .form-select {
-    background-color: #f8fafc !important;
-    border-color: #cbd5e1 !important;
-    color: #0f172a !important;
-}
-
-body.light-theme .form-control:focus,
-body.light-theme .form-select:focus {
-    background-color: #ffffff !important;
-    border-color: #0284c7 !important;
-    color: #0f172a !important;
-    box-shadow: 0 0 0 0.2rem rgba(2, 132, 199, 0.2) !important;
-}
-
-body.light-theme .form-control::placeholder {
-    color: #94a3b8 !important;
-}
-
-body.light-theme .copy-snippet-box,
-body.light-theme .copy-snippet-row.bg-dark {
-    background-color: #f8fafc !important;
-    border-color: #cbd5e1 !important;
-}
-
-body.light-theme .copy-snippet-label {
-    color: #475569 !important;
-}
-
-body.light-theme .copy-snippet-code {
-    color: #0369a1 !important;
-}
-
-body.light-theme .btn-copy-snippet {
-    background: #e2e8f0 !important;
-    border-color: #cbd5e1 !important;
-    color: #0f172a !important;
-}
-
-body.light-theme .btn-copy-snippet:hover {
-    background: #0284c7 !important;
-    border-color: #0284c7 !important;
-    color: #ffffff !important;
-}
-
-body.light-theme .btn-copy-snippet.copied {
-    background: #d1fae5 !important;
-    border-color: #10b981 !important;
-    color: #065f46 !important;
-}
-
-body.light-theme .jq-toast {
-    background: #ffffff !important;
-    border-color: #cbd5e1 !important;
-    color: #0f172a !important;
-    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.15) !important;
-}
-
-body.light-theme .jq-toast-close {
-    color: #64748b !important;
-}
-
-body.light-theme .jq-toast-close:hover {
-    color: #0f172a !important;
-}
-
-body.light-theme .scroll-progress-container {
-    background: rgba(226, 232, 240, 0.85);
-}
-
-/* 10. FAQ Accordion & Subscribe Modal (About Us) */
-body.light-theme .faq-question {
-    background: #f8fafc !important;
-    color: #0f172a !important;
-}
-
-body.light-theme .faq-question:hover,
-body.light-theme .faq-question.active {
-    background: #e0f2fe !important;
-    color: #0284c7 !important;
-}
-
-body.light-theme .faq-icon {
-    color: #0284c7 !important;
-}
-
-body.light-theme .faq-answer-inner p {
-    color: #334155 !important;
-}
-
-body.light-theme .subscribe-popup h2 {
-    color: #0284c7 !important;
-}
-
-body.light-theme .subscribe-popup > p,
-body.light-theme .subscribe-popup label {
-    color: #334155 !important;
-}
-
-body.light-theme .subscribe-close {
-    color: #475569 !important;
-}
-
-body.light-theme .subscribe-close:hover {
-    color: #0f172a !important;
-}
-
-body.light-theme .subscribe-popup input {
-    background: #f8fafc !important;
-    border-color: #cbd5e1 !important;
-    color: #0f172a !important;
-}
-
-body.light-theme .subscribe-popup input:focus {
-    background: #ffffff !important;
-    border-color: #0284c7 !important;
-}
-
-body.light-theme .subscribe-error {
-    color: #dc2626 !important;
-}
-
-body.light-theme .subscribe-success {
-    color: #059669 !important;
-}
-
-/* 11. Multi-Step Registration Wizard (Contact Page) */
-body.light-theme .step-progress-bar {
-    background: #e2e8f0 !important;
-}
-
-body.light-theme .step-indicator {
-    color: #64748b !important;
-}
-
-body.light-theme .step-indicator.active {
-    color: #0284c7 !important;
-}
-
-body.light-theme .step-indicator.completed {
-    color: #059669 !important;
-}
-
-body.light-theme .step-circle {
-    background: #f1f5f9 !important;
-    border-color: #cbd5e1 !important;
-    color: #475569 !important;
-}
-
-body.light-theme .step-indicator.active .step-circle {
-    background: #0284c7 !important;
-    border-color: #0284c7 !important;
-    color: #ffffff !important;
-}
-
-body.light-theme .step-indicator.completed .step-circle {
-    background: #10b981 !important;
-    border-color: #10b981 !important;
-    color: #ffffff !important;
-}
-
-/* Preserve white text on colored Bootstrap badges and solid buttons in Light Theme */
-body.light-theme .badge.bg-primary,
-body.light-theme .badge.bg-danger,
-body.light-theme .badge.bg-success,
-body.light-theme .btn-primary,
-body.light-theme .btn-success,
-body.light-theme .subscribe-btn,
-body.light-theme .btn-tip-refresh {
-    color: #ffffff !important;
-}
-
-/* ==========================================================================
-   Dark Mode & Table Header Refinements (Extended Rules & Leaderboard Fix)
-   ========================================================================== */
-
-/* Fix Bootstrap 5.3 dark-charcoal .text-muted & .text-secondary in Dark Mode */
-body:not(.light-theme) .text-muted,
-body:not(.light-theme) .text-secondary,
-body:not(.light-theme) #extendedRules p {
-    color: #b0b8d1 !important;
-}
-
-body:not(.light-theme) #extendedRules strong {
-    color: #ffffff !important;
-}
-
-body.light-theme #extendedRules p {
-    color: #334155 !important;
-}
-
-body.light-theme #extendedRules strong {
-    color: #0f172a !important;
-}
-
-.read-more-btn {
-    background: rgba(89, 199, 245, 0.1);
-    border: 1px solid #59c7f5;
-    color: #59c7f5 !important;
-}
-
-.read-more-btn:hover,
-.read-more-btn:focus,
-.read-more-btn:active {
-    background: #3b82f6 !important;
-    border-color: #3b82f6 !important;
-    color: #ffffff !important;
-}
-
-/* Harmonious Leaderboard Table Header in Dark Mode (no white/gray clash) */
-body:not(.light-theme) .table thead,
-body:not(.light-theme) .table thead.leaderboard-thead,
-body:not(.light-theme) .table thead.table-secondary,
-body:not(.light-theme) .table thead th {
-    background-color: #1a2234 !important;
-    color: #59c7f5 !important;
-    border-bottom: 2px solid #2e3a59 !important;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-}
-
-/* Harmonious Leaderboard Table Header in Light Mode */
-body.light-theme .table thead,
-body.light-theme .table thead.leaderboard-thead,
-body.light-theme .table thead.table-secondary,
-body.light-theme .table thead th {
-    background-color: #e0f2fe !important;
-    color: #0369a1 !important;
-    border-bottom: 2px solid #7dd3fc !important;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-}
-
-/* ==========================================================================
-   Final Project Enhancements: Animated UI Effects, Auth, Profile & API Panels
-   ========================================================================== */
-
+/* Final Project Enhancements: Animated UI, Auth, Profile & API Panels */
 .btn-animated {
     transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background-color 0.25s ease !important;
 }
@@ -2086,45 +1442,19 @@ body.light-theme .table thead th {
     display: block !important;
 }
 
-/* Light Mode Overrides for Final Project Components */
-body.light-theme .api-panel-card,
-body.light-theme .country-api-result-card,
-body.light-theme .saved-item-pill {
-    background-color: #ffffff !important;
-    border-color: #cbd5e1 !important;
-    color: #0f172a !important;
+/* ==========================================================================
+   Dark Mode Text & Table Header Refinements
+   ========================================================================== */
+body:not(.light-theme) .text-muted,
+body:not(.light-theme) .text-secondary,
+body:not(.light-theme) #extendedRules p {
+    color: #b0b8d1 !important;
 }
 
-body.light-theme .profile-details-list .list-group-item {
-    border-color: #e2e8f0 !important;
-    color: #0f172a !important;
-}
-
-body.light-theme .country-lookup-btn {
-    background: #e0f2fe !important;
-    border-color: #7dd3fc !important;
-    color: #0369a1 !important;
-}
-
-body.light-theme .country-lookup-btn:hover {
-    background: #0284c7 !important;
+body:not(.light-theme) #extendedRules strong {
     color: #ffffff !important;
 }
 
-body.light-theme .footer-nav-link {
-    color: #0284c7 !important;
-}
-
-body.light-theme .footer-nav-link:hover {
-    color: #0369a1 !important;
-}
-
-body.light-theme .invalid-feedback {
-    color: #dc2626 !important;
-}
-
-
-/* Fix Gladiator Log In & .btn-outline-light visibility in Light Theme (Day Mode) */
 body:not(.light-theme) .btn-outline-light {
     color: #f8fafc !important;
     border-color: #94a3b8 !important;
@@ -2138,16 +1468,298 @@ body:not(.light-theme) .btn-outline-light:focus {
     color: #ffffff !important;
 }
 
+body:not(.light-theme) .table thead,
+body:not(.light-theme) .table thead.leaderboard-thead,
+body:not(.light-theme) .table thead.table-secondary,
+body:not(.light-theme) .table thead th {
+    background-color: #1a2234 !important;
+    color: #59c7f5 !important;
+    border-bottom: 2px solid #2e3a59 !important;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+/* ==========================================================================
+   Unified Light Theme (Day Mode) — WCAG AA Compliant & Deduplicated
+   ========================================================================== */
+body.light-theme {
+    background-color: #f1f5f9;
+    background-image: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    color: #0f172a !important;
+}
+
+/* Surfaces & Cards */
+body.light-theme header,
+body.light-theme aside,
+body.light-theme .site-aside,
+body.light-theme .hero-banner,
+body.light-theme .rules-section,
+body.light-theme .match-card,
+body.light-theme .arena-showcase,
+body.light-theme .stat-card,
+body.light-theme .star-rating-box,
+body.light-theme .pvp-tip-box,
+body.light-theme .team-member,
+body.light-theme .faq-item,
+body.light-theme .subscribe-popup,
+body.light-theme .registration-card,
+body.light-theme .api-panel-card,
+body.light-theme .country-api-result-card,
+body.light-theme .saved-item-pill,
+body.light-theme .card,
+body.light-theme .bg-dark,
+body.light-theme footer {
+    background-color: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+body.light-theme .hero-banner {
+    background-image: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
+    border-color: #bae6fd !important;
+}
+
+body.light-theme footer {
+    background-color: #f8fafc !important;
+    border-top: 1px solid #cbd5e1 !important;
+}
+
+/* Typography & Contrast */
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6,
+body.light-theme .card-title,
+body.light-theme .navbar-brand,
+body.light-theme .navbar-brand span,
+body.light-theme .text-white,
+body.light-theme .text-light,
+body.light-theme .form-label,
+body.light-theme label,
+body.light-theme strong,
+body.light-theme #extendedRules strong {
+    color: #0f172a !important;
+}
+
+body.light-theme p,
+body.light-theme li,
+body.light-theme .card-text,
+body.light-theme aside p,
+body.light-theme small,
+body.light-theme .text-muted,
+body.light-theme .text-secondary,
+body.light-theme .form-text,
+body.light-theme .stat-label,
+body.light-theme #extendedRules p {
+    color: #334155 !important;
+}
+
+body.light-theme .text-info,
+body.light-theme .subtitle,
+body.light-theme .aside-section h2,
+body.light-theme .faq-title,
+body.light-theme .tip-author,
+body.light-theme .rating-feedback,
+body.light-theme .stat-num,
+body.light-theme .footer-nav-link {
+    color: #0369a1 !important;
+}
+
+body.light-theme .text-warning {
+    color: #b45309 !important;
+}
+
+body.light-theme .text-success {
+    color: #15803d !important;
+}
+
+body.light-theme .border-secondary {
+    border-color: #cbd5e1 !important;
+}
+
+body.light-theme code {
+    color: #0369a1 !important;
+    background-color: #e0f2fe;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+/* Navbar & Controls */
+body.light-theme .navbar-nav .nav-link {
+    color: #334155 !important;
+}
+
+body.light-theme .navbar-nav .nav-link:hover {
+    color: #0369a1 !important;
+    background-color: #f1f5f9;
+    border-radius: 6px;
+}
+
+body.light-theme .navbar-nav .nav-link.active {
+    background-color: #0369a1 !important;
+    color: #ffffff !important;
+    box-shadow: 0 3px 10px rgba(3, 105, 161, 0.25);
+}
+
+body.light-theme .navbar-nav .nav-link:focus,
+body.light-theme .navbar-nav .nav-link:focus-visible,
+body.light-theme .navbar-nav .nav-link.keyboard-focused {
+    outline: 2px solid #0369a1 !important;
+    outline-offset: 3px !important;
+    background-color: #e0f2fe !important;
+    color: #0369a1 !important;
+    box-shadow: 0 0 16px rgba(3, 105, 161, 0.35) !important;
+    border-radius: 6px;
+}
+
+body.light-theme .navbar-toggler {
+    border-color: #cbd5e1 !important;
+    background-color: #f8fafc !important;
+}
+
+body.light-theme .navbar-toggler-icon {
+    filter: invert(1) grayscale(100%) brightness(0.2);
+}
+
+body.light-theme .nav-action-btn {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none;
+}
+
+body.light-theme .nav-action-btn:hover {
+    background: #e0f2fe !important;
+    border-color: #0369a1 !important;
+    color: #0369a1 !important;
+}
+
+/* Sidebar */
+body.light-theme .site-aside hr {
+    border-color: #e2e8f0 !important;
+}
+
+body.light-theme .greeting-badge,
+body.light-theme .season-badge {
+    background: #e0f2fe !important;
+    color: #0369a1 !important;
+    border-color: #7dd3fc !important;
+}
+
+body.light-theme .greeting-text {
+    color: #0f172a !important;
+}
+
+body.light-theme .site-aside a {
+    color: #0369a1 !important;
+    font-weight: 600;
+}
+
+body.light-theme .site-aside a:hover,
+body.light-theme .footer-nav-link:hover {
+    color: #0c4a6e !important;
+    text-decoration: underline;
+}
+
+/* Tips, Rules & Arena */
+body.light-theme .tip-text {
+    color: #1e293b !important;
+}
+
+body.light-theme #extendedRules {
+    border-top-color: #cbd5e1 !important;
+}
+
+body.light-theme .read-more-btn {
+    border-color: #0369a1 !important;
+    color: #0369a1 !important;
+    background: #f0f9ff;
+}
+
+body.light-theme .read-more-btn:hover {
+    background: #0369a1 !important;
+    color: #ffffff !important;
+}
+
+body.light-theme .arena-main-wrap {
+    border-color: #cbd5e1 !important;
+    background: #e2e8f0 !important;
+}
+
+body.light-theme .arena-caption-overlay {
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 15%, rgba(15, 23, 42, 0.65) 65%, transparent) !important;
+}
+
+body.light-theme .arena-caption-overlay h3,
+body.light-theme #arenaDisplayTitle {
+    color: #ffffff !important;
+}
+
+body.light-theme .arena-caption-overlay p,
+body.light-theme #arenaDisplayDesc {
+    color: #f1f5f9 !important;
+}
+
+body.light-theme .arena-badge {
+    background: #0369a1 !important;
+    color: #ffffff !important;
+}
+
+body.light-theme .arena-thumb-btn {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+}
+
+body.light-theme .arena-thumb-btn:hover,
+body.light-theme .arena-thumb-btn.active-thumb {
+    border-color: #0369a1 !important;
+}
+
+body.light-theme .arena-thumb-title {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Buttons & Filters */
+body.light-theme .btn-primary {
+    background-color: #1d4ed8 !important;
+    border-color: #1d4ed8 !important;
+    color: #ffffff !important;
+}
+
+body.light-theme .btn-primary:hover {
+    background-color: #1e40af !important;
+    border-color: #1e40af !important;
+}
+
+body.light-theme .btn-success {
+    background-color: #15803d !important;
+    border-color: #15803d !important;
+    color: #ffffff !important;
+}
+
+body.light-theme .badge.bg-primary,
+body.light-theme .badge.bg-danger,
+body.light-theme .badge.bg-success,
+body.light-theme .subscribe-btn,
+body.light-theme .btn-tip-refresh {
+    color: #ffffff !important;
+}
+
 body.light-theme .btn-outline-light {
     color: #0f172a !important;
-    border: 2px solid #0284c7 !important;
+    border: 2px solid #0369a1 !important;
     background-color: #ffffff !important;
 }
 
 body.light-theme .btn-outline-light:hover,
 body.light-theme .btn-outline-light:focus {
-    background-color: #0284c7 !important;
-    border-color: #0284c7 !important;
+    background-color: #0369a1 !important;
+    border-color: #0369a1 !important;
     color: #ffffff !important;
 }
 
@@ -2164,9 +1776,295 @@ body.light-theme .btn-outline-secondary:focus {
     color: #ffffff !important;
 }
 
-body.light-theme code {
+body.light-theme .match-card .btn-outline-info,
+body.light-theme .btn-outline-info {
     color: #0369a1 !important;
-    background-color: #e0f2fe;
-    padding: 2px 5px;
-    border-radius: 4px;
+    border-color: #0369a1 !important;
+}
+
+body.light-theme .match-card .btn-outline-info:hover,
+body.light-theme .btn-outline-info:hover {
+    background-color: #0369a1 !important;
+    color: #ffffff !important;
+}
+
+body.light-theme .btn-discipline-filter {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #334155 !important;
+}
+
+body.light-theme .btn-discipline-filter:hover {
+    background: #f0f9ff !important;
+    border-color: #0369a1 !important;
+    color: #0369a1 !important;
+}
+
+body.light-theme .btn-discipline-filter.active {
+    background: #0369a1 !important;
+    border-color: #0369a1 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(3, 105, 161, 0.3) !important;
+}
+
+body.light-theme .match-card img {
+    background-color: #f8fafc !important;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+body.light-theme .star-btn {
+    color: #cbd5e1;
+}
+
+body.light-theme .star-btn.active,
+body.light-theme .star-btn.hovered {
+    color: #d97706;
+    text-shadow: 0 0 10px rgba(217, 119, 6, 0.45);
+}
+
+/* Tables & Profile List */
+body.light-theme .table,
+body.light-theme .table-dark {
+    --bs-table-bg: #ffffff !important;
+    --bs-table-striped-bg: #f8fafc !important;
+    --bs-table-hover-bg: #f0f9ff !important;
+    --bs-table-hover-color: #0f172a !important;
+    --bs-table-color: #0f172a !important;
+    --bs-table-border-color: #e2e8f0 !important;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .table thead,
+body.light-theme .table thead.leaderboard-thead,
+body.light-theme .table thead.table-secondary,
+body.light-theme .table thead th {
+    background-color: #e0f2fe !important;
+    color: #0369a1 !important;
+    border-bottom: 2px solid #7dd3fc !important;
+    font-weight: 700;
+}
+
+body.light-theme .table tbody tr,
+body.light-theme .table tbody td {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+    border-color: #e2e8f0 !important;
+}
+
+body.light-theme .table-hover tbody tr:hover td {
+    background-color: #f0f9ff !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .leaderboard-row .badge.bg-dark {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+}
+
+body.light-theme .profile-details-list .list-group-item {
+    border-color: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .country-lookup-btn {
+    background: #e0f2fe !important;
+    border-color: #7dd3fc !important;
+    color: #0369a1 !important;
+}
+
+body.light-theme .country-lookup-btn:hover {
+    background: #0369a1 !important;
+    color: #ffffff !important;
+}
+
+body.light-theme .tier-ht1 { background: #fee2e2 !important; color: #b91c1c !important; border-color: #f87171 !important; }
+body.light-theme .tier-lt1 { background: #ffedd5 !important; color: #9a3412 !important; border-color: #fb923c !important; }
+body.light-theme .tier-ht2 { background: #dbeafe !important; color: #1e40af !important; border-color: #60a5fa !important; }
+body.light-theme .tier-lt2 { background: #f3e8ff !important; color: #6b21a8 !important; border-color: #c084fc !important; }
+
+/* Inputs, Autocomplete, Copy & Toasts */
+body.light-theme .input-group-text {
+    background-color: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #0369a1 !important;
+}
+
+body.light-theme .form-control,
+body.light-theme .form-select {
+    background-color: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .form-control:focus,
+body.light-theme .form-select:focus {
+    background-color: #ffffff !important;
+    border-color: #0369a1 !important;
+    color: #0f172a !important;
+    box-shadow: 0 0 0 0.2rem rgba(3, 105, 161, 0.2) !important;
+}
+
+body.light-theme .form-control::placeholder {
+    color: #64748b !important;
+}
+
+body.light-theme .autocomplete-dropdown {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .autocomplete-item {
+    color: #0f172a !important;
+}
+
+body.light-theme .autocomplete-item:hover,
+body.light-theme .autocomplete-item.active-suggestion {
+    background: #e0f2fe !important;
+    color: #0369a1 !important;
+}
+
+body.light-theme .copy-snippet-box,
+body.light-theme .copy-snippet-row.bg-dark {
+    background-color: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+}
+
+body.light-theme .copy-snippet-label {
+    color: #475569 !important;
+}
+
+body.light-theme .copy-snippet-code {
+    color: #0369a1 !important;
+}
+
+body.light-theme .btn-copy-snippet {
+    background: #e2e8f0 !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .btn-copy-snippet:hover {
+    background: #0369a1 !important;
+    border-color: #0369a1 !important;
+    color: #ffffff !important;
+}
+
+body.light-theme .btn-copy-snippet.copied {
+    background: #d1fae5 !important;
+    border-color: #10b981 !important;
+    color: #065f46 !important;
+}
+
+body.light-theme .jq-toast {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.15) !important;
+}
+
+body.light-theme .jq-toast-close {
+    color: #64748b !important;
+}
+
+body.light-theme .jq-toast-close:hover {
+    color: #0f172a !important;
+}
+
+body.light-theme .scroll-progress-container {
+    background: rgba(226, 232, 240, 0.85);
+}
+
+/* FAQ & Subscribe Modal */
+body.light-theme .faq-question {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .faq-question:hover,
+body.light-theme .faq-question.active {
+    background: #e0f2fe !important;
+    color: #0369a1 !important;
+}
+
+body.light-theme .faq-icon {
+    color: #0369a1 !important;
+}
+
+body.light-theme .faq-answer-inner p {
+    color: #334155 !important;
+}
+
+body.light-theme .subscribe-popup h2 {
+    color: #0369a1 !important;
+}
+
+body.light-theme .subscribe-popup > p,
+body.light-theme .subscribe-popup label {
+    color: #334155 !important;
+}
+
+body.light-theme .subscribe-close {
+    color: #475569 !important;
+}
+
+body.light-theme .subscribe-close:hover {
+    color: #0f172a !important;
+}
+
+body.light-theme .subscribe-popup input {
+    background: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
+body.light-theme .subscribe-popup input:focus {
+    background: #ffffff !important;
+    border-color: #0369a1 !important;
+}
+
+body.light-theme .subscribe-error,
+body.light-theme .invalid-feedback {
+    color: #b91c1c !important;
+}
+
+body.light-theme .subscribe-success {
+    color: #15803d !important;
+}
+
+/* Registration Stepper */
+body.light-theme .step-progress-bar {
+    background: #e2e8f0 !important;
+}
+
+body.light-theme .step-indicator {
+    color: #475569 !important;
+}
+
+body.light-theme .step-indicator.active {
+    color: #0369a1 !important;
+}
+
+body.light-theme .step-indicator.completed {
+    color: #15803d !important;
+}
+
+body.light-theme .step-circle {
+    background: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #334155 !important;
+}
+
+body.light-theme .step-indicator.active .step-circle {
+    background: #0369a1 !important;
+    border-color: #0369a1 !important;
+    color: #ffffff !important;
+}
+
+body.light-theme .step-indicator.completed .step-circle {
+    background: #15803d !important;
+    border-color: #15803d !important;
+    color: #ffffff !important;
 }
