@@ -1557,7 +1557,11 @@ $(document).ready(function () {
             const place = data.results[0];
             const commonName = place.country || place.name || cleanQuery;
             const officialName = place.name ? `${place.name} (${place.country_code || "INTL"})` : commonName;
-            const capital = place.admin1 || place.name || "Primary Hub";
+            const capitalsMap = {
+                KZ: "Astana", US: "Washington, D.C.", DE: "Berlin",
+                CA: "Ottawa", GB: "London", FR: "Paris", BR: "Brasília", JP: "Tokyo"
+            };
+            const capital = capitalsMap[place.country_code] || `${place.latitude.toFixed(2)}°, ${place.longitude.toFixed(2)}°`;
             const region = place.timezone ? place.timezone.split("/")[0] : "Global";
             const subregion = place.country_code ? `ISO: ${place.country_code}` : "Verified";
             const population = place.population ? Number(place.population).toLocaleString() : "N/A";
@@ -2147,6 +2151,7 @@ $(document).ready(function () {
             showToast("Filled Demo Champion credentials! Click Log In to continue.", "info", "⚡");
         }
 
+        $("#fillDemoLoginBtn").on("click", fillDemoCredentials);
 
         $loginForm.on("submit", function (e) {
             e.preventDefault();
