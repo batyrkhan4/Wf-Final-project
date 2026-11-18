@@ -2235,14 +2235,10 @@ $(document).ready(function () {
 
         let activeUser = getCurrentUser();
         if (!activeUser) {
-            // Fall back to the most recently registered user in localStorage (or Demo User)
-            const allUsers = getRegisteredUsers();
-            activeUser = allUsers[allUsers.length - 1] || DEMO_USER;
-            setCurrentUser(activeUser);
-            $("#profileStatusBadge").text("Demo Session Active (Log In or Sign Up to customize)");
-        } else {
-            $("#profileStatusBadge").text("Authenticated LocalStorage Session");
+            window.location.href = "login.html";
+            return;
         }
+        $("#profileStatusBadge").text("Authenticated LocalStorage Session");
 
         function renderProfileDetails(user) {
             $("#profileDisplayName").text(user.fullName || "Gladiator");
